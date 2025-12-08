@@ -10,14 +10,8 @@
  * }
  */
 
-class ListNode {
-    val: number
-    next: ListNode | null
-    constructor(val?: number, next?: ListNode | null) {
-        this.val = (val===undefined ? 0 : val)
-        this.next = (next===undefined ? null : next)
-    }
-}
+import { ListNode } from "../class";
+
 
 /**
 현재 보고 있는 첫번째 리스트의 노드 값과

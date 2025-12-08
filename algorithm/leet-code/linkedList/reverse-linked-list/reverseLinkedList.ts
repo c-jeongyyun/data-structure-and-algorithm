@@ -56,6 +56,8 @@ prev를 현재의 next로 연결
   가지고 있는 변수중에서 리스트의 head로 사용할 수 있는게 있는지 확인해기. 너무 어렵게 생각했음.
 */
 
+import { ListNode } from "../class";
+
 /*방법 1 - stack 활용하기*/
 // function reverseList(head: ListNode | null): ListNode | null {
 //     const stack:ListNode[] = [];
