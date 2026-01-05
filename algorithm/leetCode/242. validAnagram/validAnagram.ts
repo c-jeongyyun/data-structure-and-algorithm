@@ -21,9 +21,19 @@ s의 모든 문자열이 t에 딱 한번씩 들어가있어야 anagram임
 *시간복잡도: O(nlogn)
 *공간복잡도: O(n)
 
+
+방법3) 👍
+counter 만들어서 문자열 순회.
+s일 때는 해당 알파벳이 가진 unicode -> idx 로 변환 & 그 위치의 값 +1
+s일 때는 해당 알파벳이 가진 unicode -> idx 로 변환 & 그 위치의 값 -1
+
+counter 배열이 모두 0으로 채워지면 true
+
+*공간복잡도: O(n)
+*시간복잡도: O(n)
  */
 
-function isAnagram(s: string, t: string): boolean {
+function isAnagram1(s: string, t: string): boolean {
     if(s.length !== t.length )return false;
 
     const tMap = new Map<string, number>();
@@ -51,4 +61,21 @@ function isAnagram2(s: string, t: string): boolean {
     const sortedS = s.split("").sort().join("");
     const sortedT = t.split("").sort().join("");
     return sortedS === sortedT
+};
+
+
+// 문자 - 유니코드를 UTF-16 코드유닛값으로 변환 -> 값 조정을 통해 인덱스로 사용가능
+// 배열 - 타입이 명확하다면, 더 구체적인 자료형을 써서 메모리 공간을 더 효율적으로 사용할 수 있음.
+function isAnagram(s: string, t: string): boolean {
+    if(s.length !== t.length )return false;
+
+    const counter = new Int32Array(26).fill(0); // 알파벳 개수
+
+    for(let i =0 ;i < s.length ; i++){
+        counter[s.charCodeAt(i)-97]++;
+        counter[t.charCodeAt(i)-97]--;
+    }
+
+    return counter.every(val => val ===0);
+
 };
