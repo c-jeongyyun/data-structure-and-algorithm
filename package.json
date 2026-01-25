@@ -1,0 +1,13 @@
+{
+  "name": "data-structure-and-algorithm",
+  "version": "1.0.0",
+  "description": "Data structures and algorithms study",
+  "type": "module",
+  "scripts": {
+    "test": "bun test",
+    "test:watch": "bun test --watch"
+  },
+  "devDependencies": {
+    "@types/bun": "latest"
+  }
+}
